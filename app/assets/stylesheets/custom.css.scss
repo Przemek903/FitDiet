@@ -2,3 +2,107 @@
 
 @import "bootstrap";
 
+
+.topButton {
+  background-color: #53D4BE;
+  height: 100px;
+  padding: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  font-size: 20px; 
+  
+}
+
+.topButton a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;  
+}
+
+ .drugi {
+  background-color: #FF083A;
+}
+
+
+ .trzeci {
+  background-color: #E2FF13;
+}
+
+.mainContent .tabela {
+  border-top-left-radius: 20px;
+  
+  // background-color: #53D4BE;
+  height: 500;
+}
+
+.mainContent .row {
+  margin-top: 10px;
+} 
+
+ .dodawanie {
+  // background-color: #53D4BE;
+  margin-top: 60px;
+  height: 500;
+  text-align: center;
+}
+
+
+.table {
+  // color: white;
+  font-weight:bold;
+  //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+
+}
+
+td:first-child {
+  text-align: left;
+} 
+
+.cont {
+  // background-color: #53D4BE;
+  // width:100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-style: solid;
+  border-color: #53D4BE;
+  border-bottom: none;
+  
+}
+
+.cont2 {
+  // background-color: #53D4BE;
+  width:100%;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-color: #FF083A;
+  border-bottom-color:#53D4BE;
+  border-left-color:#53D4BE;
+  border-right-color:#53D4BE;
+  border-style: solid;
+  
+}
+
+.bottomTable td {
+  text-align: left;
+}
+
+
+.btn {
+  background-color: #53D4BE;
+  color: white;
+}
+
+
+.tabelaDodawania th {
+  padding: 6px;
+
+  
+}
+
+.tabelaDodawania select {
+
+  text-align: center;
+  
+}
+

@@ -2,6 +2,8 @@ FitDiet::Application.routes.draw do
   get "static/kontakt"
 
   get "static/pomoc"
+  
+  match 'static/addNewProduct' => 'static#addNewProduct', :as => 'addNewProduct'
 
   devise_for :users
   

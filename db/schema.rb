@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140414175205) do
+ActiveRecord::Schema.define(:version => 20140515154928) do
+
+  create_table "products", :force => true do |t|
+    t.float    "kcal"
+    t.float    "protein"
+    t.float    "carbo"
+    t.float    "fat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  create_table "products_users", :id => false, :force => true do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+  end
+
+  add_index "products_users", ["product_id", "user_id"], :name => "index_products_users_on_product_id_and_user_id"
+
+  create_table "user_produsts", :force => true do |t|
+    t.integer  "carbo"
+    t.integer  "fat"
+    t.integer  "kcal"
+    t.integer  "protein"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

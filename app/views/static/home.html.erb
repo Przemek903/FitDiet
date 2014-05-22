@@ -1,7 +1,145 @@
-<h3>Strona startowa</h3> 
-<p> 
-	<%= current_user.username %>
-</p>
-<p>
-	<%= current_user.email %>
-</p>
+<div class="top">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-1"></div>
+
+			<div class="col-md-3">
+				<div class="topButton"> <a href="#">Co dzisiaj zjadłes?</a> </div>
+			</div>
+			<div class="col-md-3 ">
+				<div class="topButton drugi"> <a href="#">Dzisiejszy trening</a> </div>
+			</div>
+			<div class="col-md-3 ">
+				<div class="topButton trzeci"> <a href="#">Historia - Wykresy</a> </div>
+			</div>
+
+			<div class="col-md-2"></div>
+
+		</div> <!-- end row class -->
+
+	</div> <!-- end container class -->
+
+</div> <!-- end top class -->
+
+
+
+
+<div class="mainContent ">
+
+	<div class="container">
+		<div class="cont">
+		<div class="row">
+
+			<div class="col-md-1"></div>
+			
+				<div class="col-md-6 ">
+					
+					<table class="table">
+					  <tr>
+					    <th>Nazwa Produktu</th>
+					    <th>Kalorie</th>
+					    <th>Białko</th>
+					    <th>Węglowodany</th>
+					    <th>Tłuszcze</th>
+					  </tr>
+					  <% for p in current_user.products %>
+					    <tr>
+					      <td><%=h p.name %></td>
+					      <td><%=h p.kcal %></td>
+					      <td><%=h p.protein %></td>
+					      <td><%=h p.carbo %></td>
+					      <td><%=h p.fat %></td>
+					      </tr>
+					  <% end %>
+					</table>
+	
+				</div>
+	
+				<div class="col-md-4 dodawanie">
+					
+					<%= form_tag("/static/addNewProduct") do%>
+					<table class="tabelaDodawania">
+					  <tr>
+					    <th>Wybierz produkt</th>
+					    <th>Liczba gram produktu</th>
+					  </tr>
+
+					    <tr>
+					      <td><%= select_tag("name", options_for_select(@products.collect{ |u| [u.name, u.id] }) )%></td>
+					      <td><%= number_field_tag ("gramy")%></td>
+					    </tr>
+
+					</table>
+					
+					<br />
+					<%= submit_tag "Dodaj Produkt", :class => "btn " %>
+					<% end %>
+	
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+
+		</div> <!-- end row class -->
+
+	</div>  <!-- end container class -->
+
+</div> <!-- end mainContent class -->
+
+
+
+<div class="mainContent">
+
+	<div class="container">
+		<div class="cont2">
+		<div class="row">
+
+			<div class="col-md-1"></div>
+
+			<div class="col-md-6">
+				
+				<p>Razem:</p>
+					<table class="table">
+					  <tr>
+					    <th></th>
+					    <th>Kalorie</th>
+					    <th>Białko</th>
+					    <th>Węglowodany</th>
+					    <th>Tłuszcze</th>
+					  </tr>
+
+					<% kcal, protein, carbo, fat = [], [], [], [] %>
+					<% for p in current_user.products %>
+						<% kcal << p.kcal %>
+						<% protein << p.kcal %>
+						<% carbo << p.kcal %>
+						<% fat << p.kcal %>
+					<% end %>
+					  
+					    <tr class="bottomTable">
+					      <td></td>
+					      <td><%= kcal.sum() %></td>
+					      <td><%= protein.sum() %></td>
+					      <td><%= carbo.sum() %></td>
+					      <td><%= fat.sum() %></td>
+					      </tr>
+					 
+					</table>
+
+
+			</div>
+
+			<div class="col-md-4"></div>
+
+			<div class="col-md-1"></div>
+
+		</div> <!-- end row class -->
+
+	</div>  <!-- end container class -->
+
+</div> <!-- end mainContent class -->
+</div>
+
+
